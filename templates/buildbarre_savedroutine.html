@@ -21,7 +21,7 @@
 
 
     <style>
-        .center{
+                .center{
             text-align: center;
         }
         .bold{
@@ -44,9 +44,9 @@
     width:130px;
     display: block;
     height: auto;
-    padding:5px;
+    padding:7px;
     color:#fff;
-    background:blue;
+    background:darkslateblue;
     border:none;
     border-radius:3px;
     outline: none;
@@ -92,7 +92,7 @@
     text-decoration: line-through;
   }
   .blue{
-    color: blue;
+    color: darkslateblue;
   }
   .label{
     font-size: 12px;
@@ -177,13 +177,34 @@
   padding-left: 5px;
   font-size: 14px;
 }
+.boxbg{
+    border-radius: 10px;
+    border: 1px solid whitesmoke;
+    background: whitesmoke;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 0;
+    padding-right: 0;
+    width: 800px;
+}
+.searchtype{
+  margin-right: 30px;
+    height: 39px;
+    width: 240px;
+    border-color: darkslateblue;
+    color: darkslateblue;
+    border-width: 1px;
+    font-size: 11px;
+    padding: 8px;
+    background: white;
+}
+
 
 /*  GO FULL WIDTH BELOW 480 PIXELS */
 @media only screen and (max-width: 480px) {
   .col {  margin: 1% 0 1% 0%; }
   .span_1_of_9, .span_2_of_9, .span_3_of_9, .span_4_of_9, .span_5_of_9, .span_6_of_9, .span_7_of_9, .span_8_of_9, .span_9_of_9 { width: 100%; }
 }
-
 
     </style>
 
@@ -202,19 +223,43 @@
     <div class="navbar-collapse collapse justify-content-stretch">
         <ul class="navbar-nav ml-auto" style="font-size: 14px;">
             <li class="nav-item">
-                <a class="nav-link" id="create-routine1" href="#">Create Routine</a>
+                <a class="nav-link" id="create-routine1" href="create">Create Routine</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="saved-routine1" href="#">Saved Routines</a>
+                <a class="nav-link" id="saved-routine1" href="saved">Saved Routines</a>
             </li>
         </ul>
     </div>
 </nav>
-
-   
+  
 </div>
 <br><br>
 
+  <div class="container boxbg"> <!-- search stuff-->
+      <div class="row">
+ <!--        <div class="search-header karla" style="padding-left: 25px; font-size: 20px">
+          <p>Search for a routine:</p>
+        </div> -->
+      </div>
+        <div class="row">
+          <div class="col-md-4 karla" align="center">
+          <input id="search_club" type="text" style="margin-left:10px;width:250px;border-color:darkslateblue;color:darkslateblue;border-width:1px;font-size:11px;font-family:padding:8px;height:38px;" placeholder="  Routine name" class="ui-autocomplete-input" autocomplete="off">
+          </div>
+          <div class="col-md-4 karla" align="center">
+          <select class="searchtype" id="search_type" name="projectType">
+          <option value="select" selected="">Routine duration</option>
+          <option value="under30"> < 30 min</option>
+          <option value="3040">30 - 40 min</option>
+          <option value="4050">40 - 50 min</option>
+          <option value="5060">50 - 60 min</option>
+        </select>
+        </div>  
+        <div class="col-md-4 karla" align="right">
+        <button type="button" id="saved-routine" name="submit" class="form-btn semibold">Search</button>
+        </div>
+        </div>
+    </div>
+<br><br>
 
 <div class="container roboto"> <!--container for saved routines -->
 
@@ -252,10 +297,6 @@
   <div id="results"> <!--start of results div (display saved routines here) -->
 
   </div> <!--end of results div-->
-
-
-
-
  
   
 </div> <!--end of container div-->

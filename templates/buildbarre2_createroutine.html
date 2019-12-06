@@ -22,7 +22,7 @@
             text-align: center;
             justify-content: center;
         }
-                .karla{
+        .karla{
           font-family: 'Karla';
         }
         .bold{
@@ -65,7 +65,7 @@
     text-decoration: line-through;
   }
   .blue{
-    color: blue;
+    color: darkslateblue;
   }
  
       .iframe-hover{
@@ -109,7 +109,7 @@
     font-size:15px;
   }
   .btn-link:hover{
-    color: blue;
+    color: darkslateblue;
     text-decoration: none;
   }
   .btn-link:focus{
@@ -145,10 +145,10 @@
     <div class="navbar-collapse collapse justify-content-stretch">
         <ul class="navbar-nav ml-auto" style="font-size: 14px;">
             <li class="nav-item">
-                <a class="nav-link" id="create-routine1" href="#">Create Routine</a>
+                <a class="nav-link" id="create-routine1" href="create">Create Routine</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="saved-routine1" href="#">Saved Routines</a>
+                <a class="nav-link" id="saved-routine1" href="saved">Saved Routines</a>
             </li>
         </ul>
     </div>
@@ -159,7 +159,10 @@
 <br>
 
 
-<div class="container karla">
+<div class="container karla" style="line-height:1;">
+  <div class="row center"> 
+    <input id="routname" class="center" type="text" style="margin-left:10px;width:300px;border-color:darkslateblue;color:darkslateblue;border-width:1px;font-size:16px;font-family:padding:8px;height:38px;" placeholder="  Your routine name" class="ui-autocomplete-input" autocomplete="off"> 
+  </div><br><br>
   <div class="row roboto center" style="font-size:14px;"><u>
     select <b>one</b> video from each of the below categories to build your barre routine:</u>
   </div>
@@ -447,7 +450,7 @@
   
   <!-- time sum-->
   <div class="center roboto">
-    <p id="timesum" style="font-size: 16px; color: blue;">Total Time - 0:00<p>
+    <p id="timesum" style="font-size: 16px; color: darkslateblue;">Total Time - 0:00<p>
   </div> <!-- end of timesum -->
   <br>
   <!-- playlist -->

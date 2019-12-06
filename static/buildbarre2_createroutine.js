@@ -110,12 +110,28 @@ function saveRoutine(chosen_videos){
 
 	//user clicks button:
 	$('.btn.btn-sm').click(function(){
-		//find out which button it was (reset or save)
-		var instruction = $(this).text().toLowerCase().split(' ')[0] //either 'save' or 'reset'
-		var time_str = $("#timesum").html().split("-")[1] 
-		time_str = time_str.substring(1, time_str.length) // get rid of leading space
 		
-		var data_to_send = {'chosen_videos': chosen_videos, 'instruction': instruction, 'total time': time_str}
+		var instruction = $(this).text().toLowerCase().split(' ')[0] //either 'save' or 'reset' clicked
+		var time_str = $("#timesum").html().split("-")[1] 
+		time_str = time_str.substring(1, time_str.length) // get rid of leading space in total time
+		var routname = $("#routname").val().trim() // save name of routine supplied by user
+		var time_bracket = ''// find out if under 30 min, 30-40 min, 40-50 min, or 50-60 min
+		if (parseFloat(time_str) < 30){
+			time_bracket = 'under30'
+		} 
+		else if (parseFloat(time_str) >= 30 && parseFloat(time_str) < 40){
+			time_bracket = '3040'
+		}
+		else if (parseFloat(time_str) >= 40 && parseFloat(time_str) < 50){
+			time_bracket = '4050'
+		}
+		else if (parseFloat(time_str) >= 50 && parseFloat(time_str) < 61){
+			time_bracket = '5060'
+		}
+		console.log('time bracket ', time_bracket) // *note: parseFloat of time_str returns floored integer val here
+
+		
+		var data_to_send = {'chosen_videos': chosen_videos, 'instruction': instruction, 'total time': time_str, 'routine name': routname, 'time bracket': time_bracket}
 		$.ajax({
 			type: "POST",
 			url: "save_new_routine",

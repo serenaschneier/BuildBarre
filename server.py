@@ -60,6 +60,8 @@ def save_new_routine():
 	instr = json_data['instruction']
 	routine = json_data['chosen_videos']
 	total_time = json_data['total time']
+	routname = json_data['routine name']
+	timebrack = json_data['time bracket']
 
 	#if user clicked save button, save the full routine to later display it on saved routines page
 	if instr == 'save':
@@ -73,7 +75,9 @@ def save_new_routine():
 			'dev video': routine['dev'],
 			'gb video': routine['gb'],
 			'str video': routine['str'],
-			'total time': total_time
+			'total time': total_time,
+			'routine name': routname,
+			'time bracket': timebrack
 		}
 		all_routine_vids.append(full_routine)
 	#clear chosen vids for next time user wants to create a routine:
