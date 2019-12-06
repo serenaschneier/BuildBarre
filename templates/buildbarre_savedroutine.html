@@ -1,0 +1,264 @@
+<html>
+<head>
+    
+    <!-- JQuery -->
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <script>
+        var all_routine_vids = {{all_routine_vids|tojson}} 
+    </script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script type="text/javascript" src="{{ url_for('static', filename = 'buildbarre_savedroutine.js') }}"></script>
+
+
+        <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet'>
+
+
+
+    <style>
+        .center{
+            text-align: center;
+        }
+        .bold{
+            font-weight: bold;
+        }
+      
+        .karla{
+          font-family: 'Karla';
+        }
+        .roboto{
+          font-family: 'Roboto Mono'
+        }
+        .green{
+          background-color: #8BC3A3;
+        }
+     
+        /* Send Button Styles */
+
+  .form-btn{
+    width:130px;
+    display: block;
+    height: auto;
+    padding:5px;
+    color:#fff;
+    background:blue;
+    border:none;
+    border-radius:3px;
+    outline: none;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    margin:auto;
+    box-shadow: 0px 1px 4px rgba(0,0,0, 0.10);
+    -moz-box-shadow: 0px 1px 4px rgba(0,0,0, 0.10);
+    -webkit-box-shadow: 0px 1px 4px rgba(0,0,0, 0.10);
+  }
+
+  .form-btn:hover{
+    background:#111;
+    color: white;
+    border:none;
+  }
+
+  .form-btn:active{
+    opacity: 0.9;
+  }
+
+  .container-fluid{
+    padding: 15px;
+  }
+  .nav-link-style{
+    margin-top: 10px;
+    margin-left: 10px
+  }
+  .navbar-brand{
+    /*display: inline-block;*/
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    /*margin-right: 1rem;*/
+    font-size: 20px;
+    line-height: inherit;
+    white-space: nowrap;
+    color: black !important;
+    text-shadow: 1px 1px lightgrey;
+
+  }
+  .strikethru{
+    text-decoration: line-through;
+  }
+  .blue{
+    color: blue;
+  }
+  .label{
+    font-size: 12px;
+    color: grey;
+  }
+  .line{
+    padding-bottom: 20px;
+    border-bottom: 1px dashed lightgrey;
+  }
+  .yellow{
+    background-color: lightyellow;
+  }
+/*  .marginset{
+    margin-left: -15px;
+    margin-right: -15px;
+  }*/
+  /*  SECTIONS  */
+.section {
+  clear: both;
+  padding: 0px;
+  margin: 0px;
+}
+
+/*  COLUMN SETUP  */
+.col {
+  display: block;
+  float:left;
+  margin: 1% 0 1% 1.6%;
+}
+.col:first-child { margin-left: 0; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+/*  GRID OF NINE  */
+.span_9_of_9 {
+  width: 100%;
+}
+
+.span_8_of_9 {
+    width: 88.71%;
+}
+
+.span_7_of_9 {
+    width: 77.42%;
+}
+
+.span_6_of_9 {
+    width: 66.13%;
+}
+
+.span_5_of_9 {
+    width: 54.84%;
+}
+
+.span_4_of_9 {
+    width: 43.55%;
+}
+
+.span_3_of_9 {
+    width: 32.26%;
+}
+
+.span_2_of_9 {
+    width: 20.97%;
+}
+
+.span_1_of_9 {
+    width: 9.688%;
+}
+.span_0_of_9 {
+    width: 6.688%;
+    margin-right: -20px;
+    text-align: center;
+    margin-top: 60px;
+    padding-right: 0;
+    padding-left: 0;
+}
+.position {
+  padding-left: 5px;
+  font-size: 14px;
+}
+
+/*  GO FULL WIDTH BELOW 480 PIXELS */
+@media only screen and (max-width: 480px) {
+  .col {  margin: 1% 0 1% 0%; }
+  .span_1_of_9, .span_2_of_9, .span_3_of_9, .span_4_of_9, .span_5_of_9, .span_6_of_9, .span_7_of_9, .span_8_of_9, .span_9_of_9 { width: 100%; }
+}
+
+
+    </style>
+
+    
+</head>
+<body>
+
+
+<div class="container-narrow karla">
+
+  <nav class="navbar navbar-expand-md navbar-light bg-light" style="height: 45px;">
+    <a href="/" class="navbar-brand">BUILDBARRE</a>
+    <button class="navbar-toggler" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse justify-content-stretch">
+        <ul class="navbar-nav ml-auto" style="font-size: 14px;">
+            <li class="nav-item">
+                <a class="nav-link" id="create-routine1" href="#">Create Routine</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="saved-routine1" href="#">Saved Routines</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+   
+</div>
+<br><br>
+
+
+<div class="container roboto"> <!--container for saved routines -->
+
+  <div class="section group row label" style="border-bottom: 1px dashed lightgrey;"> <!--start of label row-->
+    <div class="col span_0_of_9" align="center">
+     <!--time goes here in actual entry rows-->
+    </div>
+    <div class="col span_1_of_9" align="center">
+    PLIE
+    </div>
+    <div class="col span_1_of_9" align="center">
+    TENDU
+    </div>
+    <div class="col span_1_of_9" align="center">
+    DEGAGE
+    </div>
+    <div class="col span_1_of_9" align="center">
+    RONDE DE JAMB
+    </div>
+    <div class="col span_1_of_9" align="center">
+    FRAPPE
+    </div>
+    <div class="col span_1_of_9" align="center">
+    DEVELOPPE
+    </div>
+    <div class="col span_1_of_9" align="center">
+    GRANDE BATTEMENT
+    </div>
+    <div class="col span_1_of_9" align="center">
+    BARRE STRETCH
+    </div>
+  </div> <!--end of row label -->
+
+
+  <div id="results"> <!--start of results div (display saved routines here) -->
+
+  </div> <!--end of results div-->
+
+
+
+
+ 
+  
+</div> <!--end of container div-->
+
+</body>
+</html>

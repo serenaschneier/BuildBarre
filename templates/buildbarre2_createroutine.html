@@ -1,0 +1,497 @@
+<html>
+<head>
+    
+        <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+     <!-- JQuery -->
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://use.fontawesome.com/c6915c756b.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'buildbarre2_createroutine.js') }}"></script>
+
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet'>
+
+
+
+    <style>
+
+        .center{
+            text-align: center;
+            justify-content: center;
+        }
+                .karla{
+          font-family: 'Karla';
+        }
+        .bold{
+            font-weight: bold;
+        }
+        .colcenter{
+          display: table;
+          margin: auto;
+        }
+
+        .roboto{
+          font-family: 'Roboto Mono'
+        }
+        .green{
+          background-color: #8BC3A3;
+        }
+
+
+  .container-fluid{
+    padding: 15px;
+  }
+
+  .nav-link-style{
+    margin-top: 10px;
+    margin-left: 10px
+  }
+  .navbar-brand{
+    /*display: inline-block;*/
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    /*margin-right: 1rem;*/
+    font-size: 20px;
+    line-height: inherit;
+    white-space: nowrap;
+    color: black !important;
+    text-shadow: 1px 1px lightgrey;
+
+  }
+  .strikethru{
+    text-decoration: line-through;
+  }
+  .blue{
+    color: blue;
+  }
+ 
+      .iframe-hover{
+        box-shadow: 10px 0px 40px rgba(0,0,0, .2);
+        border: 2px solid lightgrey;
+      }
+      .gl{
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        outline: none;
+        border: 0;
+        background: transparent;
+      }
+  .rout{
+    background-color: whitesmoke;
+    height: 120px;
+  }
+  .bord{
+    border: 1px solid black;
+  }
+  .mgn{
+    margin-top: 45%;
+  }
+  .card{
+    border-top: 1px solid rgba(0,0,0,.125);
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+  }
+  .card-header{
+    background: none;
+    border-bottom: 0;
+  }
+  .accordion .card:last-of-type{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  .btn-link{
+    color: black;
+    font-size:15px;
+  }
+  .btn-link:hover{
+    color: blue;
+    text-decoration: none;
+  }
+  .btn-link:focus{
+    text-decoration: none;
+  }
+  .btn-link.collapsed{
+    text-decoration: none;
+  }
+  .flip{
+    transform: rotate(180deg);
+  }
+  i{
+    font-size:15px;
+  }
+
+}
+ </style>
+
+    
+</head>
+<body>
+
+
+
+
+<div class="container-narrow karla">
+
+  <nav class="navbar navbar-expand-md navbar-light bg-light" style="height: 45px;">
+    <a href="/" class="navbar-brand">BUILDBARRE</a>
+    <button class="navbar-toggler" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse justify-content-stretch">
+        <ul class="navbar-nav ml-auto" style="font-size: 14px;">
+            <li class="nav-item">
+                <a class="nav-link" id="create-routine1" href="#">Create Routine</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="saved-routine1" href="#">Saved Routines</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+   
+</div>
+<br>
+
+
+<div class="container karla">
+  <div class="row roboto center" style="font-size:14px;"><u>
+    select <b>one</b> video from each of the below categories to build your barre routine:</u>
+  </div>
+  <br>
+
+  <div class="col-md-8 mx-auto small">
+<div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button id="pliepanel" class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseplie" aria-expanded="true" aria-controls="collapseplie">
+          1. PLIE 
+        </button>
+        <img src="{{url_for('static', filename='downcarrot.png')}}" width="15px" height="15px">
+      </h2>
+    </div>
+
+    <div id="collapseplie" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        <div class="row">
+          <div class='col-md-3' align="center">
+            <iframe width='120' height='120' id='plie1' src='https://www.youtube.com/embed/HpIkZlqAlI0'></iframe>
+          </div>
+          <div class='col-md-3' align="center">
+            <iframe width='120' height='120' id='plie2' src='https://www.youtube.com/embed/R2FdpNor_hs'></iframe>
+          </div>
+           <div class='col-md-3' align="center">
+            <iframe width='120' height='120' id='plie3' src='https://www.youtube.com/embed/GIdw6UZAbaA'></iframe>
+          </div>
+          <div class='col-md-3' align="center">
+            <iframe width='120' height='120' id='plie4' src='https://www.youtube.com/embed/eKhTKClTIhg'></iframe>
+          </div>
+        </div>
+        <div class="row">
+          <div class='col-md-3' align="center">1:42<button class="btn"><i class="fa fa-plus-circle" id='plie1'></i></button></div>
+          <div class='col-md-3' align="center">2:21<button class="btn"><i class="fa fa-plus-circle" id='plie2'></i></button></div>
+          <div class='col-md-3' align="center">2:31<button class="btn"><i class="fa fa-plus-circle" id='plie3'></i></button></div>
+          <div class='col-md-3' align="center">2:18<button class="btn"><i class="fa fa-plus-circle" id='plie4'></i></button></div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button id="tendupanel" class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsetendu" aria-expanded="false" aria-controls="collapsetendu">
+          2. TENDU
+        </button>        <img src="{{url_for('static', filename='downcarrot.png')}}" width="15px" height="15px">
+
+      </h2>
+    </div>
+    <div id="collapsetendu" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+<div class="row">
+          <div class='col-md-3' align="center">
+            <iframe width='120' height='120' id='tendu1' src='https://www.youtube.com/embed/fFljBOSy3vA'></iframe>
+          </div>
+          <div class='col-md-3' align="center">
+            <iframe width='120' height='120' id='tendu2' src='https://www.youtube.com/embed/G0aNCfPrhGY'></iframe>
+          </div>
+          <div class='col-md-3' align="center">
+            <iframe width='120' height='120' id='tendu3' src='https://www.youtube.com/embed/gBXouOI5c7Y'></iframe>
+          </div>
+          <div class='col-md-3' align="center">
+            <iframe width='120' height='120' id='tendu4' src='https://www.youtube.com/embed/ayDltUy4-GU'></iframe>
+          </div>
+        </div>
+        <div class="row">
+          <div class='col-md-3' align="center">6:26<button class="btn"><i class="fa fa-plus-circle" id='tendu1'></i></button></div>
+          <div class='col-md-3' align="center">3:31<button class="btn"><i class="fa fa-plus-circle" id='tendu2'></i></button></div>
+          <div class='col-md-3' align="center">2:14<button class="btn"><i class="fa fa-plus-circle" id='tendu3'></i></button></div>
+          <div class='col-md-3' align="center">1:57<button class="btn"><i class="fa fa-plus-circle" id='tendu4'></i></button></div>
+      </div>
+      </div> </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h2 class="mb-0">
+        <button id="dggpanel" class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsedgg" aria-expanded="false" aria-controls="collapsedgg">
+          3. DEGAGE
+        </button>        <img src="{{url_for('static', filename='downcarrot.png')}}" width="15px" height="15px">
+
+      </h2>
+    </div>
+    <div id="collapsedgg" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+<div class="row">
+          <div class='col-md-3' align="center">
+            <iframe width='120' height='120' id='dgg1' src='https://www.youtube.com/embed/CFUNx7NBtMc'></iframe>
+          </div>
+          <div class='col-md-3' align="center">
+            <iframe width='120' height='120' id='dgg2' src='https://www.youtube.com/embed/QywNQXYhtxA'></iframe>
+          </div>
+          <div class='col-md-3' align="center">
+            <iframe width='120' height='120' id='dgg3' src='https://www.youtube.com/embed/gg2d06mEF24'></iframe>
+          </div>
+          <div class='col-md-3' align="center">
+            <iframe width='120' height='120' id='dgg4' src='https://www.youtube.com/embed/l4AwoZBmWag'></iframe>
+          </div>
+        </div>
+        <div class="row">
+          <div class='col-md-3' align="center">5:22<button class="btn"><i class="fa fa-plus-circle" id='dgg1'></i></button></div>
+          <div class='col-md-3' align="center">5:17<button class="btn"><i class="fa fa-plus-circle" id='dgg2'></i></button></div>
+          <div class='col-md-3' align="center">1:51<button class="btn"><i class="fa fa-plus-circle" id='dgg3'></i></button></div>
+          <div class='col-md-3' align="center">0:42<button class="btn"><i class="fa fa-plus-circle" id='dgg4'></i></button></div>
+      </div>
+      </div></div>
+    </div>
+
+      <div class="card"> <!--ronde re jamb card-->
+    <div class="card-header" id="headingronde">
+      <h2 class="mb-0">
+        <button id="rpanel" class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapser" aria-expanded="false" aria-controls="collapser">
+          4. RONDE DE JAMB
+        </button>        <img src="{{url_for('static', filename='downcarrot.png')}}" width="15px" height="15px">
+
+      </h2>
+    </div>
+    <div id="collapser" class="collapse" aria-labelledby="headingronde" data-parent="#accordionExample">
+      <div class="card-body">
+<div class="row">
+          <div class='col-md-3' align="center">
+            <iframe width='120' height='120' id='r1' src='https://www.youtube.com/embed/UrL4jC6vR88'></iframe>
+          </div>
+          <div class='col-md-3' align="center">
+              <iframe width='120' height='120' id='r2' src='https://www.youtube.com/embed/eNoOM_kaQ1A'></iframe>
+          </div>
+           <div class='col-md-3' align="center">
+            <iframe width='120' height='120' id='r3' src='https://www.youtube.com/embed/dnueZdYaLRc'></iframe>
+          </div>
+          <div class='col-md-3' align="center">
+            <iframe width='120' height='120' id='r4' src='https://www.youtube.com/embed/sK15NUT5XB4'></iframe>
+          </div>
+        </div>
+        <div class="row">
+          <div class='col-md-3' align="center">2:35<button class="btn"><i class="fa fa-plus-circle" id='r1'></i></button></div>
+          <div class='col-md-3' align="center">2:43<button class="btn"><i class="fa fa-plus-circle" id='r2'></i></button></div>
+           <div class='col-md-3' align="center">4:02<button class="btn"><i class="fa fa-plus-circle" id='r3'></i></button></div>
+          <div class='col-md-3' align="center">1:30<button class="btn"><i class="fa fa-plus-circle" id='r4'></i></button></div>
+      </div>
+      </div></div>
+    </div> <!--end of ronde de jamb card-->
+
+          <div class="card"> <!--frappe card-->
+    <div class="card-header" id="headingfrappe">
+      <h2 class="mb-0">
+        <button id="frappepanel" class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsefrappe" aria-expanded="false" aria-controls="collapsefrappe">
+          5. FRAPPE
+        </button><img src="{{url_for('static', filename='downcarrot.png')}}" width="15px" height="15px">
+
+      </h2>
+    </div>
+    <div id="collapsefrappe" class="collapse" aria-labelledby="headingfrappe" data-parent="#accordionExample">
+      <div class="card-body">
+        <div class="row">
+          <div class='col-md-3' align="center">
+            <iframe width='120' height='120' id='frappe1' src='https://www.youtube.com/embed/bUhnS_7jY5s'></iframe>
+          </div>
+          <div class='col-md-3' align="center">
+              <iframe width='120' height='120' id='frappe2' src='https://www.youtube.com/embed/iaoTYFnsHTQ'></iframe>
+          </div>
+           <div class='col-md-3' align="center">
+            <iframe width='120' height='120' id='frappe3' src='https://www.youtube.com/embed/Q1WQCxMijSQ'></iframe>
+          </div>
+          <div class='col-md-3' align="center">
+              <iframe width='120' height='120' id='frappe4' src='https://www.youtube.com/embed/M93QoHPaW4I'></iframe>
+          </div>
+        </div>
+        <div class="row">
+          <div class='col-md-3' align="center">0:50<button class="btn"><i class="fa fa-plus-circle" id='frappe1'></i></button></div>
+          <div class='col-md-3' align="center">1:35<button class="btn"><i class="fa fa-plus-circle" id='frappe2'></i></button></div>
+          <div class='col-md-3' align="center">2:16<button class="btn"><i class="fa fa-plus-circle" id='frappe3'></i></button></div>
+          <div class='col-md-3' align="center">1:57<button class="btn"><i class="fa fa-plus-circle" id='frappe4'></i></button></div>
+      </div>
+      </div></div>
+    </div> <!--end of frappe card-->
+
+    <div class="card"> <!--dev card-->
+    <div class="card-header" id="headingdev">
+      <h2 class="mb-0">
+        <button id="devpanel" class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsedev" aria-expanded="false" aria-controls="collapsedev">
+          6. DEVELOPPE
+        </button>        <img src="{{url_for('static', filename='downcarrot.png')}}" width="15px" height="15px">
+
+      </h2>
+    </div>
+    <div id="collapsedev" class="collapse" aria-labelledby="headingdev" data-parent="#accordionExample">
+      <div class="card-body">
+  <div class="row">
+          <div class='col-md-3' align="center">
+            <iframe width='120' height='120' id='dev1' src='https://www.youtube.com/embed/Qxuxo9X4I4w'></iframe>
+          </div>
+          <div class='col-md-3' align="center">
+              <iframe width='120' height='120' id='dev2' src='https://www.youtube.com/embed/xbYJCeiJDJE'></iframe>
+          </div>
+          <div class='col-md-3' align="center">
+            <iframe width='120' height='120' id='dev3' src='https://www.youtube.com/embed/7ckBLgDu7TY'></iframe>
+          </div>
+          <div class='col-md-3' align="center">
+              <iframe width='120' height='120' id='dev4' src='https://www.youtube.com/embed/e81WOjBdEmQ'></iframe>
+          </div>
+        </div>
+        <div class="row">
+          <div class='col-md-3' align="center">1:22<button class="btn"><i class="fa fa-plus-circle" id='dev1'></i></button></div>
+          <div class='col-md-3' align="center">1:09<button class="btn"><i class="fa fa-plus-circle" id='dev2'></i></button></div>
+          <div class='col-md-3' align="center">3:02<button class="btn"><i class="fa fa-plus-circle" id='dev3'></i></button></div>
+          <div class='col-md-3' align="center">1:46<button class="btn"><i class="fa fa-plus-circle" id='dev4'></i></button></div>
+      </div>
+      </div></div>
+    </div> <!--end of dev card-->
+
+        <div class="card"> <!--gb card-->
+    <div class="card-header" id="headinggb">
+      <h2 class="mb-0">
+        <button id="gbpanel" class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsegb" aria-expanded="false" aria-controls="collapsegb">
+          7. GRANDE BATTEMENT
+        </button>        <img src="{{url_for('static', filename='downcarrot.png')}}" width="15px" height="15px">
+
+      </h2>
+    </div>
+    <div id="collapsegb" class="collapse" aria-labelledby="headinggb" data-parent="#accordionExample">
+      <div class="card-body">
+  <div class="row">
+          <div class='col-md-3' align="center">
+            <iframe width='120' height='120' id='gb1' src='https://www.youtube.com/embed/IIo89v_2-8o'></iframe>
+          </div>
+          <div class='col-md-3' align="center">
+              <iframe width='120' height='120' id='gb2' src='https://www.youtube.com/embed/f9BwDRwfsvQ'></iframe>
+          </div>
+          <div class='col-md-3' align="center">
+            <iframe width='120' height='120' id='gb3' src='https://www.youtube.com/embed/klZwCBjoPeo'></iframe>
+          </div>
+          <div class='col-md-3' align="center">
+              <iframe width='120' height='120' id='gb4' src='https://www.youtube.com/embed/hBRZwcCpGPQ'></iframe>
+          </div>
+        </div>
+        <div class="row">
+          <div class='col-md-3' align="center">0:58<button class="btn"><i class="fa fa-plus-circle" id='gb1'></i></button></div>
+          <div class='col-md-3' align="center">1:39<button class="btn"><i class="fa fa-plus-circle" id='gb2'></i></button></div>
+          <div class='col-md-3' align="center">3:47<button class="btn"><i class="fa fa-plus-circle" id='gb3'></i></button></div>
+          <div class='col-md-3' align="center">1:42<button class="btn"><i class="fa fa-plus-circle" id='gb4'></i></button></div>
+      </div>
+      </div></div>
+    </div> <!--end of gb card-->
+
+    <div class="card"> <!--str card-->
+    <div class="card-header" id="headinggb">
+      <h2 class="mb-0">
+        <button id="strpanel" class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsestr" aria-expanded="false" aria-controls="collapsestr">
+          8. BARRE STRETCH
+        </button>        <img src="{{url_for('static', filename='downcarrot.png')}}" width="15px" height="15px">
+
+      </h2>
+    </div>
+    <div id="collapsestr" class="collapse" aria-labelledby="headingstr" data-parent="#accordionExample">
+      <div class="card-body">
+        <div class="row">
+          <div class='col-md-3' align="center">
+            <iframe width='120' height='120' id='str1' src='https://www.youtube.com/embed/2_e_Ypv8mKo'></iframe>
+          </div>
+          <div class='col-md-3' align="center">
+              <iframe width='120' height='120' id='str2' src='https://www.youtube.com/embed/Zi6k9lfBtH8'></iframe>
+          </div>
+        
+        <div class='col-md-3' align="center">
+            <iframe width='120' height='120' id='str3' src='https://www.youtube.com/embed/WN5Nixp5rL8'></iframe>
+        </div>
+          <div class='col-md-3' align="center">
+              <iframe width='120' height='120' id='str4' src='https://www.youtube.com/embed/coj0CCJ0TfU'></iframe>
+          </div>
+        </div>
+        </div>
+        <div class="row">
+          <div class='col-md-3' align="center">12:43<button class="btn"><i class="fa fa-plus-circle" id='str1'></i></button></div>
+          <div class='col-md-3' align="center">10:51<button class="btn"><i class="fa fa-plus-circle" id='str2'></i></button></div>
+          <div class='col-md-3' align="center">2:10<button class="btn"><i class="fa fa-plus-circle" id='str3'></i></button></div>
+          <div class='col-md-3' align="center">4:52<button class="btn"><i class="fa fa-plus-circle" id='str4'></i></button></div>
+      </div>
+      </div>
+    </div> <!--end of str card-->
+  </div> <!--end of accordion-->
+
+<br>
+  
+  <!-- time sum-->
+  <div class="center roboto">
+    <p id="timesum" style="font-size: 16px; color: blue;">Total Time - 0:00<p>
+  </div> <!-- end of timesum -->
+  <br>
+  <!-- playlist -->
+  <div id="full_routine" class="center karla">
+    <div class="row"> <!-- start of wrapper row-->
+      <div class="col-md-6"> <!-- start of col 1-->
+            <div class="row rout">
+                <div class="col-md-3 bord" align="center" id="plie_chosen">
+                         <p class='mgn'> PLIE</p>
+                </div>
+                <div class="col-md-3 bord" align="center" id="tendu_chosen">
+                            <p class='mgn'> TENDU</p>
+                </div>
+                <div class="col-md-3 bord" align="center" id="dgg_chosen">
+                            <p class='mgn'> DEGAGE</p>
+                </div>
+                <div class="col-md-3 bord" align="center" id="r_chosen">
+                           <p class='mgn'> RONDE DE JAMB</p>
+                </div>
+          </div>
+    </div> <!--eo col 1-->
+    <div class="col-md-6"> <!--start of col 2-->
+            <div class="row rout">
+                <div class="col-md-3 bord" align="center" id="frappe_chosen">
+                           <p class='mgn'>FRAPPE</p>
+                </div>
+                <div class="col-md-3 bord" align="center" id="dev_chosen">
+                           <p class='mgn'> DEVELOPPE</p>
+                </div>
+                <div class="col-md-3 bord" align="center" id="gb_chosen">
+                           <p class='mgn'> GRANDE BATTEMENT</p>
+                </div>
+                <div class="col-md-3 bord" align="center" id="str_chosen">
+                          <p class='mgn'>  BARRE STRETCH</p>
+                </div>
+          </div>
+    </div> <!--end of col 2-->
+</div> <!--end of wrapper row-->
+  </div><!-- end of playlist div -->
+  <br>
+  <div id='save_routine' class='center'></div>
+ 
+  <br>
+</div> <!--end of container div-->
+
+</body>
+</html>

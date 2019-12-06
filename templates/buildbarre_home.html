@@ -1,0 +1,178 @@
+<html>
+<head>
+    
+    <!-- JQuery -->
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+        <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script type="text/javascript" src="{{ url_for('static', filename = 'buildbarre_home.js') }}"></script>
+
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet'>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+
+    <style>
+        .center{
+            text-align: center;
+        }
+        .bold{
+            font-weight: bold;
+        }
+      
+        .karla{
+          font-family: 'Karla';
+        }
+        .roboto{
+          font-family: 'Roboto Mono';
+        }
+        .green{
+          background-color: #8BC3A3;
+        }
+        .whitebg{
+          background-color: white;
+        }
+     
+        /* Send Button Styles */
+
+  .form-btn{
+    width:175px;
+    display: block;
+    height: 35px;
+    padding:5px;
+    color:#fff;
+    background:blue;
+    border:none;
+    border-radius:3px;
+    outline: none;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    margin:auto;
+    box-shadow: 0px 1px 4px rgba(0,0,0, 0.10);
+    -moz-box-shadow: 0px 1px 4px rgba(0,0,0, 0.10);
+    -webkit-box-shadow: 0px 1px 4px rgba(0,0,0, 0.10);
+  }
+
+  .form-btn:hover{
+    background:#111;
+    color: white;
+    border:none;
+  }
+
+  .form-btn:active{
+    opacity: 0.9;
+  }
+
+  .container-fluid{
+    padding: 15px;
+  }
+  .bg-light {
+    background-color: white !important;
+}
+  .nav-link-style{
+    margin-top: 10px;
+    margin-left: 10px
+  }
+  .navbar-brand{
+    /*display: inline-block;*/
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    /*margin-right: 1rem;*/
+    font-size: 20px;
+    line-height: inherit;
+    white-space: nowrap;
+    color: black !important;
+    text-shadow: 1px 1px lightgrey;
+
+  }
+  .strikethru{
+    text-decoration: line-through;
+  }
+  .blue{
+    color: blue;
+  }
+    .wid{
+    max-width: 800px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: white;
+    opacity: 0.95;
+  }
+  .boxstyle{
+    opacity: 0.95;
+    border: 1px solid darkgrey;
+  }
+        .centerImg{
+            margin: auto;
+            display: block;
+            /*height: 300px;*/
+            /*border: 2px solid yellow;*/
+        }
+
+
+
+    </style>
+
+    
+</head>
+<body background="../static/barrecollage.png">
+
+
+<div class="container-narrow karla">
+
+  <nav class="navbar navbar-expand-md navbar-light bg-light" style="height: 45px;">
+    <a href="/" class="navbar-brand">BUILDBARRE</a>
+    <button class="navbar-toggler" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse justify-content-stretch">
+        <ul class="navbar-nav ml-auto" style="font-size: 14px;">
+            <li class="nav-item">
+                <a class="nav-link" id="create-routine1" href="#">Create Routine</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="saved-routine1" href="#">Saved Routines</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+   
+</div>
+<br><br><br>
+<br><br><br>
+
+
+
+<div class="container roboto wid boxstyle">
+  <br>
+
+  <div class="offset">
+  <div class="row white bold centerImg karla">
+
+        <div class="center" style="font-size: 25px;">Choreographing <span class="blue">ballet barre routines</span><br> can be so <span class="strikethru">time-consuming</span> <span class="blue"> easy.</span></div><br>
+    </div>
+    <p style="text-align: center; font-size: 14px;"> a database-driven workflow for the busy ballet teacher. </p><br><br>
+
+    <div class="row white" style="justify-content: center;">
+    <div class="col-md-3 center bold karla">
+        <button type="button" id="create-routine" name="submit" class="form-btn semibold">Create Routine</button> 
+    </div>
+    <div class="col-md-3 center bold karla">
+        <button type="button" id="saved-routine" name="submit" class="form-btn semibold">View Saved Routines</button> 
+    </div> 
+
+  </div> 
+</div>
+  <br>
+</div> <!--end of container div-->
+ 
+
+
+</body>
+</html>
