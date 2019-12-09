@@ -111,7 +111,7 @@ Pygments==2.2.0
 pylint==1.6.4
 PyMySQL==0.9.3
 pyodbc==4.0.16
-pyOpenSSL==17.0.0
+pyOpenSSL==17.5.0
 pyparsing==2.1.4
 PySocks==1.7.1
 pytest==3.0.7
