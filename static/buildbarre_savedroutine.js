@@ -34,12 +34,73 @@ videos = {'plie1': ['#plie_chosen',1.70,"<iframe width='120' height='120' id='pl
 
 $(document).ready(function(){
 	
-
-	displayRoutines();
+    $("#results").empty();
+    $("#search_club").val("");
+    $("#search_type").val("select");
+    $("#search_club").focus();
+	displayRoutines(all_routine_vids);
 	addStyles();
 
 
+    //gather all routines names
+    var names_only = []
+    for (entry in all_routine_vids){
+        if (all_routine_vids[entry]['routine name'] != '') //if user gave routine a name
+        names_only.push(all_routine_vids[entry]['routine name'])
+    }
+    $("#search_club").autocomplete({
+        source: names_only
+    })
+   
+    //press Search button or enter to instigate search
+    $("#saved-routine").click(function(){
+        submitSearch();
+    })
+
+    $("#search_club").keypress(function(e){
+        if (e.which == 13){
+            submitSearch();
+        }
+    })
+
+    $("#search_type").keypress(function(e){
+        if (e.which == 13){
+            submitSearch();
+        }
+    })
+
 }); //end of doc ready fxn
+
+//process search criteria
+var submitSearch = function(){
+        $("#results").empty()
+        //collect input and selected field values
+        var routname = $("#search_club").val();
+        var duration = $("#search_type").val();
+        //filter out all_routine_vids for those that do not possess same routine name or duration as requested
+        var specs = []
+        for (entry in all_routine_vids){
+            console.log(all_routine_vids[entry]['time bracket'])
+            console.log(duration)
+            console.log(routname)
+            if (all_routine_vids[entry]['routine name'] == routname && duration == 'select'){
+                specs.push(all_routine_vids[entry])
+            }
+            else if (all_routine_vids[entry]['routine name'] == routname && all_routine_vids[entry]['time bracket'] == duration){
+                specs.push(all_routine_vids[entry])
+            }
+            else if (routname == '' && all_routine_vids[entry]['time bracket'] == duration){
+                console.log('same duration')
+                specs.push(all_routine_vids[entry])
+            }
+            else if (routname == '' && duration == 'select'){
+                specs.push(all_routine_vids[entry])
+            }
+
+        }
+        
+        displayRoutines(specs);
+}
 
 
 //highlight first row to denote most recently created routine by user
@@ -59,17 +120,19 @@ var addStyles = function(){
 
 
 //display each saved routine as a row
-var displayRoutines = function(){
+var displayRoutines = function(arr){
 
 	$("#results").empty();
-
+    $("#search_club").val("");
+    $("#search_type").val("select");
+    $("#search_club").focus();
 
 	//display a vertical list of ALL saved routines
     //display on page load or if no search critera found
-	if (all_routine_vids.length > 0){
+	if (arr.length > 0){
 
-		for (var i = 0; i < all_routine_vids.length; i++){
-			var match = all_routine_vids[i];
+		for (var i = 0; i < arr.length; i++){
+			var match = arr[i];
 			var row = $("<br><div class='section group'>");
 
 			//column for time
@@ -111,8 +174,6 @@ var displayRoutines = function(){
 
     		$(row).append(ptdr_results);
 
-
-    		console.log(i)
 
     		var border = '<div class="line"></div>';
 
